@@ -1,0 +1,30 @@
+<div class="grid catalog-page-special">  
+    <div class="section-header text-center">
+      <div class="page-width">
+        <h1>{{ page.title }}</h1>
+      {{ page.content }}
+      </div>
+      
+    </div>
+  
+  <div class="page-width">
+    <div class="grid grid--half-gutters">
+      <div class="grid__item medium-up--one-third">
+        {{ product.title }}
+        
+        {% if product.title contains 'Santoku' or product.title contains 'Kanpeki' %}
+                    
+        {{ product.title }}
+
+                    {% endif %}
+        
+      </div>
+      <div class="grid__item medium-up--one-third">2</div>
+      <div class="grid__item medium-up--one-third">3</div>
+    </div>
+  </div>
+
+<!--     <div class="rte">
+      {{ page.content }}
+    </div> -->
+</div>
