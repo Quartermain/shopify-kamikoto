@@ -1,0 +1,50 @@
+{% comment %}
+  The contents of the collection.liquid template can be found in /sections/collection-template.liquid
+{% endcomment %}
+
+<div class="category-special">
+
+	<div class="page-width">
+	    <div class="title-header">
+	      <h1 class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h2>
+	    </div>
+
+	    <div class="row-detail">
+	      <div class="video-wrapper">
+	          <iframe src="https://player.vimeo.com/video/215146621" width="100%" height="360" frameborder="0"
+	                  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	      </div>
+	    </div>
+
+	    <div class="title-header text-center">
+	      <h1 class="text-center" >It is a long established fact that a reader will be distracted by the readable content of </h2>
+	      <p class="txt-description">It was popularised in the 1960s with the release</p>
+	      <img class="img-knife" src="{{ 'knife.jpg' | asset_url }}" alt="{{ image.alt | escape }}" />
+	    </div>
+	</div>
+
+	<div class="collection-box-specail">
+		{% section 'collection-block1' %}
+	</div>
+	<div class="static-block-lifetime">
+		{% include 'static-block-lifetime-special-category'  %}
+	</div>
+	<div class="blog-carousel">
+		{% include 'static-block-carousel' %}
+	</div>
+	<div>
+		block reivew and instagram
+	</div>
+	<div class="blog-made-order">
+		{% include 'static-blog-order' %}
+	</div>
+	<div class="collection-box-specail">
+		{% section 'collection-threeproduct' %}
+	</div>
+	<div class="static-our-commitment">
+		{% include 'static-our-commitment' %}
+	</div>
+	<div class="static-about-spirit">
+		{% include 'static-about-spirit' %}
+	</div>
+</div>

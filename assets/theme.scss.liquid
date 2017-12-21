@@ -6096,14 +6096,6 @@ span.stamped-file-uploader {
   }
 }
 
-.catalog-page-special {
-  .section-header {
-    background: #000;
-    padding: 30px 0;
-    color: #fff;    
-  }
-}
-
 .block-static-service {
   text-align: center;
   .title-spirit {
@@ -6204,5 +6196,16 @@ span.stamped-file-uploader {
 
   .desktop-only {
     display:none !important;
+  }
+}
+
+
+
+.catalog-page-special {
+  .title-header {
+    @include media-query($medium-up) {
+      width: 80%;
+      margin: 0 auto;
+    }
   }
 }

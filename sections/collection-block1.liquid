@@ -18,28 +18,44 @@
 <div class="page-width">
 {% for collection in collections %}  
 
-  {% if collection.handle == 'collection-threeproduct' %}
+  {% if collection.handle == 'rawk' %}
 
     <ul class="grid block-collection1">
         {% for product in collection.products limit:3 %}
       <li class="grid__item medium-up--one-third clearfix">
         <div class="container-element">
           <h3 class="txt-title align--center">{{ product.title }}</h2>
-          <div class="txt-price align--center">{{ product.price | money }}</div>
-          
+          <div class="review-customer align--center">
+            {% if product.title contains 'Santoku' or product.title contains 'Kanpeki' %}
+              <span class="stamped-starrating stamped-badge-starrating"
+                        style="display:inline-block !important;"><i class="fa fa-star"></i><i
+                              class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                              class="fa fa-star-half-o"></i></span>
+                  {% else %}
+              <span class="stamped-starrating stamped-badge-starrating" style="display:inline-block !important;">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </span>
+
+            {% endif %}
+              <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-sku="{{product.handle}}" style="display: inline-block;">{{ product.metafields.stamped.badge }}</span>
+          </div>
           <div class="img-product align--center">
             <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="product.title">
           </div>
-          <div class="txt-description align--center">
+          <div class="txt-description">
             {{ product.description }}
           </div>
           <div class="btn-addcart align--center">
-            <form action="/cart" method="post" enctype="multilpart/form-data"  id="AddToCartForm">
+            {% comment %}<form action="/cart" method="post" enctype="multilpart/form-data"  id="AddToCartForm">
               <button type="submit" name="add" id="AddToCartForm" class="btn">
                 <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
               </button>
-            </form>
-            {% comment %}<input type="button" class="btn btn--small" value="{{ 'plus.products.order-now' | t }}" onClick="instantBuy()" />{% endcomment %}
+            </form>{% endcomment %}
+            <input type="button" class="btn btn--small" value="{{ 'plus.products.order-now' | t }}" onClick="instantBuy()" />
           </div>
         </div>
       </li>
@@ -51,7 +67,7 @@
 {% endfor %}
 </div>
 
-{% comment %}
+
 <script>
   // [Plus] Function to skip cart page
   function instantBuy(){
@@ -68,4 +84,3 @@
     })
   }
 </script>
-{% endcomment %}
